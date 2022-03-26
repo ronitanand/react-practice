@@ -1,6 +1,6 @@
 
-import Expenses from "./components/Expenses";
-import ExpenseHeader from "./components/ExpenseHeader";
+import Expenses from "./components/Expenses/Expenses";
+import ExpenseHeader from "./components/Expenses/ExpenseHeader";
 function App() {
   const expenses = [
     {
