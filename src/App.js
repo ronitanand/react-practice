@@ -1,8 +1,11 @@
 
 import Expenses from "./components/Expenses/Expenses";
 import ExpenseHeader from "./components/Expenses/ExpenseHeader";
+import NewExpense from "./components/NewExpense/NewExpense";
+import { useState } from "react";
+
 function App() {
-  const expenses = [
+  const DUMMY_EXPENSES= [
     {
       id: "e1",
       title: "Toilet Paper",
@@ -24,9 +27,34 @@ function App() {
     },
   ];
 
+  const[expenses,setExpenses]=useState(DUMMY_EXPENSES);
+
+  const addExpenseHandler=(expense)=>{
+    // let res=[]
+    // for(let i=0;i<expenses.length;i++){
+    //   res.push(expenses[i]);
+
+    // }
+    // res.concat([expense])
+    // setExpenses(res);
+    
+    setExpenses((prevExpenses)=>{
+      return [expense,...prevExpenses];
+    });
+    // setExpenses([expense,...expenses]);
+    console.log(expenses);
+    
+    
+  }
+
+  
+
+
   return (
     <div className="App">
       <ExpenseHeader/>
+      
+      <NewExpense onAddExpense={addExpenseHandler}  />
       <Expenses items={expenses} />
     </div>
   );
